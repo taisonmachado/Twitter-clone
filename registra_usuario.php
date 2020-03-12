@@ -57,8 +57,8 @@
     $sql = "insert into usuarios(usuario, email, senha) values ('$usuario', '$email', '$senha')";
 
     if(mysqli_query($link, $sql)){
-        echo "usuario registrado com sucesso";
+        header('Location: index.php?cadastro_concluido=1&');
     }else{
-        echo "erro ao registrar usuário";
+        header('Location: index.php?cadastro_concluido=0&');
     }
 ?>

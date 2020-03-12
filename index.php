@@ -2,6 +2,15 @@
 
 $erro = isset($_GET['erro']) ? $_GET['erro'] : 0;
 
+if(isset($_GET['cadastro_concluido'])){
+	if($_GET['cadastro_concluido']){
+		echo  "<script>alert('Cadastro realizado com Sucesso!');</script>";
+	}
+	else{
+		echo  "<script>alert('Cadastro não realizado');</script>";
+	}
+}
+
 ?>
 
 <!DOCTYPE HTML>
