@@ -13,8 +13,11 @@ $id_usuario = $_SESSION['id_usuario'];
 $objDb = new db();
 $link = $objDb->conecta_mysql();
 
-$sql = "SELECT DATE_FORMAT(t.data_inclusao, '%d %b %Y %T') AS data_inclusao_formatada, t.tweet, u.usuario from tweet AS t JOIN usuarios AS u ON (t.id_usuario = u.id)";
-$sql .= "WHERE id_usuario = $id_usuario order by data_inclusao desc";
+$sql = "SELECT DATE_FORMAT(t.data_inclusao, '%d %b %Y %T') AS data_inclusao_formatada, t.tweet, u.usuario ";
+$sql .= "from tweet AS t JOIN usuarios AS u ON (t.id_usuario = u.id) ";
+$sql .= "WHERE id_usuario = $id_usuario ";
+$sql .= "OR id_usuario IN (SELECT seguindo_id_usuario from usuarios_seguidores where id_usuario = $id_usuario) ";
+$sql .= "order by data_inclusao desc";
 
 $resultado_id = mysqli_query($link, $sql);
 

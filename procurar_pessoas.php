@@ -48,7 +48,7 @@ if (!isset($_SESSION['usuario'])) {
 									method: 'post',
 									data: {seguir_id_usuario: id_usuario},
 									success: function(data){
-										alert(data);
+										
 									}
 								});
 							});
@@ -64,7 +64,7 @@ if (!isset($_SESSION['usuario'])) {
 									method: 'post',
 									data: {deixar_seguir_id_usuario: id_usuario},
 									success: function(data){
-										alert(data);
+										
 									}
 								});
 							});
